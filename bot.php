@@ -17,10 +17,10 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
-      if ($text == 'hello') {
+      if ($text == 'สวัสดี') {
         $messages = [
   				'type' => 'text',
-  				'text' => 'ควยไรไอ้สัส'
+  				'text' => 'ไหว้พ่อเหอะไอ้สัส'
   			];
       } else {
         $messages = [
