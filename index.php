@@ -1,3 +1,3 @@
 <?php
-  echo "Hello KingRTP";
+  echo "Hello LINE-BOT With KINGRTP 2222";
 ?>
