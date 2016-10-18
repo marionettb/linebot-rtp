@@ -65,13 +65,16 @@ if (!is_null($events['events'])) {
 				],
 				[
 					"type" => "text",
-					"text"=> "May I help you?"
+					"text" => "May I help you?"
 				]
 			];
-				
+			$msg2 = [
+				"type" => "text",
+				"text" => "ทดสอบ"
+			];
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$msg],
+				'messages' => [$msg2],
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
