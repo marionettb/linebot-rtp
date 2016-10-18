@@ -19,7 +19,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			switch ($text) {
 				case 'สวัสดี':
-					$messages = [
+					$msg1 = [
 						'type' => 'text',
 						'text' => 'สวัสดีครับ'
 	  			];
@@ -53,10 +53,10 @@ if (!is_null($events['events'])) {
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
-			$msg1 = [
-				"type" => "text",
-				"text" => "สวัสดีครับ2"
-			];
+			// $msg1 = [
+			// 	"type" => "text",
+			// 	"text" => "สวัสดีครับ2"
+			// ];
 			$msg2 = [
 				"type" => "text",
 				"text" => "มีอะไรให้ช่วยไหม?"
