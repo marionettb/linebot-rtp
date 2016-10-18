@@ -51,7 +51,7 @@ if (!is_null($events['events'])) {
             }else{
                 $result_text = 'ไม่พบข้อมูล';
             }
-						$messages = [
+						$rep_msg = [
 							'type' => 'text',
 							'text' => $result_text
 						];
