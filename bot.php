@@ -69,7 +69,7 @@ if (!is_null($events['events'])) {
 			$reply_msg = [$msg1, $msg2, $stk];
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$reply_msg]
+				'messages' => [$msg1, $msg2, $stk]
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
