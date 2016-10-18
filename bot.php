@@ -83,7 +83,7 @@ if (!is_null($events['events'])) {
 					$msg1 = [
 						"type" => "audio",
 						"originalContentUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/doyoumind.mp3",
-						"duration" => 40000
+						"duration" => 400000
 					];
 					$rep_msg = [
 						'reply' => [ $msg1 ]
