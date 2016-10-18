@@ -69,6 +69,16 @@ if (!is_null($events['events'])) {
 						'reply' => [ $msg1 ]
 					];
 					break;
+				case 'youtube':
+					$msg1 = [
+						"type" => "image",
+						"originalContentUrl" => "https://youtu.be/_xGhK6qgPtM",
+						"previewImageUrl" => "https://youtu.be/_xGhK6qgPtM"
+					];
+					$rep_msg = [
+						'reply' => [ $msg1 ]
+					];
+					break;
 				default:
 				$messages = [
 					'type' => 'text',
