@@ -23,10 +23,13 @@ if (!is_null($events['events'])) {
 						'type' => 'text',
 						'text' => 'สวัสดีครับ'
 	  			];
-					// $msg2 = [
-					// 	'type' => 'text',
-					// 	'text' => 'สวัสดีครับ2'
-	  			// ];
+					$msg2 = [
+						'type' => 'text',
+						'text' => 'สวัสดีครับ2'
+	  			];
+					$rep_msg = [
+						'reply' => [ $msg1, $msg2 ]
+					];
 					// $messages = { $msg1, $msg2 };
 					break;
 				case 'ทดสอบ1':
@@ -73,7 +76,7 @@ if (!is_null($events['events'])) {
 			$reply_msg = [$msg1, $msg2, $stk];
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$msg1, $msg2, $stk]
+				'messages' => $rep_msg['reply']
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
