@@ -27,7 +27,7 @@ if (!is_null($events['events'])) {
 						'type' => 'text',
 						'text' => 'สวัสดีครับ2'
 	  			];
-					$messages = array( $msg1, $msg2 );
+					$messages = $msg1;
 					break;
 				case 'ทดสอบ1':
 					$messages = [
