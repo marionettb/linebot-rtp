@@ -59,6 +59,16 @@ if (!is_null($events['events'])) {
 							'reply' => [ $msg1 ]
 						];
 					break;
+				case 'รูป':
+					$msg1 = [
+						"type" => "image",
+				    "originalContentUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/plug1.png",
+				    "previewImageUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/plug1.png"
+					];
+					$rep_msg = [
+						'reply' => [ $msg1 ]
+					];
+					break;
 				default:
 				$messages = [
 					'type' => 'text',
