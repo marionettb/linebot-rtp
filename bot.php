@@ -60,11 +60,11 @@ if (!is_null($events['events'])) {
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$msg1 = [
 				"type" => "text",
-				"text" => "May I help you?"
+				"text" => "สวัสดีครับ"
 			];
 			$msg2 = [
 				"type" => "text",
-				"text" => "ทดสอบ"
+				"text" => "มีอะไรให้ช่วยไหม?"
 			];
 			$stk = [
 				"type" => "sticker",
