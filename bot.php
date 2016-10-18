@@ -51,9 +51,12 @@ if (!is_null($events['events'])) {
             }else{
                 $result_text = 'ไม่พบข้อมูล';
             }
-						$rep_msg = [
+						$msg1 = [
 							'type' => 'text',
 							'text' => $result_text
+						];
+						$rep_msg = [
+							'reply' => [ $msg1 ]
 						];
 					break;
 				default:
