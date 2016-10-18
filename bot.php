@@ -67,14 +67,13 @@ if (!is_null($events['events'])) {
 				"text" => "ทดสอบ"
 			];
 			$stk = [
-				"STKID" => "3",
-				"STKPKGID" => "332",
-				"STKVER" => "100"
+				"type" => "sticker",
+			  "packageId" => "1",
+			  "stickerId" => "1"
 			];
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$msg1, $msg2],
-				'contentMetadata' => [$stk]
+				'messages' => [$msg1, $msg2]
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
