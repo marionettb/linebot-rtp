@@ -20,8 +20,14 @@ if (!is_null($events['events'])) {
 			switch ($text) {
 				case 'สวัสดี':
 					$messages = [
-						'type' => 'text',
-						'text' => 'สวัสดีครับ'
+						[
+							'type' => 'text',
+							'text' => 'สวัสดีครับ1'
+						],
+						[
+							'type' => 'text',
+							'text' => 'สวัสดีครับ2'
+		  			]
 	  			];
 					$msg2 = [
 						'type' => 'text',
