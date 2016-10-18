@@ -71,10 +71,10 @@ if (!is_null($events['events'])) {
 			  "packageId" => "1",
 			  "stickerId" => "2"
 			];
-			$reply_msg = [$msg1, $msg2, $stk];
+			$reply_msg = [$reply_msg];
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$reply_msg]
+				'messages' => [$msg1, $msg2, $stk]
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
