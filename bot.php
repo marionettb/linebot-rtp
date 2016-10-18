@@ -27,8 +27,13 @@ if (!is_null($events['events'])) {
 						'type' => 'text',
 						'text' => 'สวัสดีครับ2'
 	  			];
+					$stk = [
+						"type" => "sticker",
+					  "packageId" => "1",
+					  "stickerId" => "2"
+					];
 					$rep_msg = [
-						'reply' => [ $msg1, $msg2 ]
+						'reply' => [ $msg1, $msg2, $stk ]
 					];
 					// $messages = { $msg1, $msg2 };
 					break;
