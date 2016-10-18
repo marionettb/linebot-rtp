@@ -82,7 +82,7 @@ if (!is_null($events['events'])) {
 				case 'เพลง':
 					$msg1 = [
 						"type" => "audio",
-						"originalContentUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/doyoumind.mp3",
+						"originalContentUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/doyoumind.m4a",
 						"duration" => 313200
 					];
 					$rep_msg = [
