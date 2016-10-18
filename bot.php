@@ -66,9 +66,18 @@ if (!is_null($events['events'])) {
 				"type" => "text",
 				"text" => "ทดสอบ"
 			];
+			$stk = [
+				"contentType" => 8,
+		    "toType" => 1,
+		    "contentMetadata" => [
+					"STKID" => "3",
+					"STKPKGID" => "332",
+					"STKVER" => "100"
+				]
+			];
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$msg2, $msg1],
+				'messages' => [$msg1, $msg2, $stk],
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
