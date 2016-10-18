@@ -31,6 +31,7 @@ if (!is_null($events['events'])) {
 							'text' => 'สวัสดีครับ'
 						]
 	  			];
+
 					$rep1 = [$msg1, $msg2];
 					break;
 				case 'ทดสอบ1':
@@ -61,23 +62,23 @@ if (!is_null($events['events'])) {
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
-			$msg1 = [
-				"type" => "text",
-				"text" => "สวัสดีครับ2"
-			];
-			$msg2 = [
-				"type" => "text",
-				"text" => "มีอะไรให้ช่วยไหม?"
-			];
-			$stk = [
-				"type" => "sticker",
-			  "packageId" => "1",
-			  "stickerId" => "2"
-			];
+			// $msg1 = [
+			// 	"type" => "text",
+			// 	"text" => "สวัสดีครับ2"
+			// ];
+			// $msg2 = [
+			// 	"type" => "text",
+			// 	"text" => "มีอะไรให้ช่วยไหม?"
+			// ];
+			// $stk = [
+			// 	"type" => "sticker",
+			//   "packageId" => "1",
+			//   "stickerId" => "2"
+			// ];
 			$reply_msg = [$reply_msg];
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$rep1]
+				'messages' => [$msg1]
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
