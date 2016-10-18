@@ -19,14 +19,10 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			switch ($text) {
 				case 'สวัสดี':
-					$messages = [
+					$msg1 = [
 						[
 							'type' => 'text',
 							'text' => 'สวัสดีครับ'
-						],
-						[
-							'type' => 'text',
-							'text' => 'มีอะไรให้ช่วยไหม'
 						]
 	  			];
 					break;
@@ -60,7 +56,7 @@ if (!is_null($events['events'])) {
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$msg1 = [
 				"type" => "text",
-				"text" => "สวัสดีครับ"
+				"text" => "สวัสดีครับ2"
 			];
 			$msg2 = [
 				"type" => "text",
