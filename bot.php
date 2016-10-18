@@ -30,7 +30,7 @@ if (!is_null($events['events'])) {
 					$stk = [
 						"type" => "sticker",
 					  "packageId" => "1",
-					  "stickerId" => "2"
+					  "stickerId" => "106"
 					];
 					$rep_msg = [
 						'reply' => [ $msg1, $msg2, $stk ]
