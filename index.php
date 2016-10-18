@@ -10,4 +10,5 @@
     ]
   ];
   echo $messages['text'];
+  echo "test";
 ?>
