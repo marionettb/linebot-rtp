@@ -21,7 +21,7 @@ if (!is_null($events['events'])) {
 				case 'สวัสดี':
 					$messages = [
 						'type' => 'text',
-	  				'text' => 'สวัสดีครับ'
+	  				'text' => 'สวัสดีครับ(moon wink)'
 	  			];
 					break;
 				case 'ทดสอบ1':
