@@ -9,5 +9,5 @@
       'text' => 'มีอะไรให้ช่วยไหม?'
     ]
   ];
-  echo $messages;
+  echo $messages['text'];
 ?>
