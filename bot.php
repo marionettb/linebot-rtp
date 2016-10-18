@@ -37,23 +37,24 @@ if (!is_null($events['events'])) {
 					];
 					// $messages = { $msg1, $msg2 };
 					break;
-				case 'ทดสอบ1':
-					$messages = [
-						'type' => 'text',
-						'text' => 'สวัสดีครับ1'
-					];
-					break;
-				case 'ทดสอบ2':
-					$messages = [
-						'type' => 'text',
-						'text' => 'สวัสดีครับ2'
-					];
-					break;
-				case 'ทดสอบ3':
-					$messages = [
-						'type' => 'text',
-						'text' => 'สวัสดีครับ3'
-					];
+				case 'อากาศ':
+					$ch1 = curl_init();
+            curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch1, CURLOPT_URL, 'http://api.wunderground.com/api/cf7dc205e34e58be/forecast/lang:TH/q/Thailand/'.str_replace(' ', '%20', $text_ex[1]).'.json');
+            $result1 = curl_exec($ch1);
+            curl_close($ch1);
+
+            $obj = json_decode($result1, true);
+            if(isset($obj['forecast']['txt_forecast']['forecastday'][0]['fcttext_metric'])){
+                $result_text = $obj['forecast']['txt_forecast']['forecastday'][0]['fcttext_metric'];
+            }else{
+                $result_text = 'ไม่พบข้อมูล';
+            }
+						$messages = [
+							'type' => 'text',
+							'text' => $result_text
+						];
 					break;
 				default:
 				$messages = [
