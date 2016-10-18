@@ -25,7 +25,7 @@ if (!is_null($events['events'])) {
 	  			];
 					$msg2 = [
 						'type' => 'text',
-						'text' => 'สวัสดีครับ2'
+						'text' => 'มีอะไรให้ช่วยไหม?'
 	  			];
 					$stk = [
 						"type" => "sticker",
