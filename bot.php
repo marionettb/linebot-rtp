@@ -20,8 +20,14 @@ if (!is_null($events['events'])) {
 			switch ($text) {
 				case 'สวัสดี':
 					$messages = [
-						'type' => 'text',
-	  				'text' => 'สวัสดีครับ(moon wink)'
+						{
+	            "type":"text",
+	            "text":"Hello, user"
+		        },
+		        {
+	            "type":"text",
+	            "text":"May I help you?"
+		        }
 	  			];
 					break;
 				case 'ทดสอบ1':
