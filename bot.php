@@ -62,8 +62,8 @@ if (!is_null($events['events'])) {
 				case 'รูป':
 					$msg1 = [
 						"type" => "image",
-				    "originalContentUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/plug1.png",
-				    "previewImageUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/plug1.png"
+				    "originalContentUrl" => "https://drive.google.com/file/d/0B3glTn1bQpYJUk9COXVFaVRmaUk/view?usp=sharing",
+				    "previewImageUrl" => "https://drive.google.com/file/d/0B3glTn1bQpYJUk9COXVFaVRmaUk/view?usp=sharing"
 					];
 					$rep_msg = [
 						'reply' => [ $msg1 ]
