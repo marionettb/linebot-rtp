@@ -19,16 +19,20 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			switch ($text) {
 				case 'สวัสดี':
-					$messages = [
-						[
-							'type' => 'text',
-							'text' => 'สวัสดีครับ'
-						],
-						[
-							'type' => 'text',
-							'text' => 'มีอะไรให้ช่วยไหม'
-						]
-	  			];
+					$msg1 = [
+						"type" => "text",
+						"text" => "สวัสดีครับผมเป็นกุ้ง"
+					];
+					$msg2 = [
+						"type" => "text",
+						"text" => "มีอะไรให้ช่วยไม๊"
+					];
+					$stk = [
+						"type" => "sticker",
+					  "packageId" => "1",
+					  "stickerId" => "2"
+					];
+					$msg_reply = [$msg1, $msg2, $stk];
 					break;
 				case 'ทดสอบ1':
 					$messages = [
@@ -58,22 +62,9 @@ if (!is_null($events['events'])) {
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
-			$msg1 = [
-				"type" => "text",
-				"text" => "May I help you?"
-			];
-			$msg2 = [
-				"type" => "text",
-				"text" => "ทดสอบ"
-			];
-			$stk = [
-				"type" => "sticker",
-			  "packageId" => "1",
-			  "stickerId" => "1"
-			];
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$msg1, $msg2, $stk]
+				'messages' => [$msg_reply]
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
