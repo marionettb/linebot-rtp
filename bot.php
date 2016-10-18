@@ -19,17 +19,15 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			switch ($text) {
 				case 'สวัสดี':
-					$messages = [
-						[
-							'type' => 'text',
-							'text' => 'สวัสดีครับ'
-		  			],
-						[
-							'type' => 'text',
-							'text' => 'สวัสดีครับ2'
-		  			]
-					];
-					// $messages = [[$msg1],[$msg2]];
+					$msg1 = [
+						'type' => 'text',
+						'text' => 'สวัสดีครับ'
+	  			];
+					// $msg2 = [
+					// 	'type' => 'text',
+					// 	'text' => 'สวัสดีครับ2'
+	  			// ];
+					// $messages = { $msg1, $msg2 };
 					break;
 				case 'ทดสอบ1':
 					$messages = [
@@ -75,7 +73,7 @@ if (!is_null($events['events'])) {
 			$reply_msg = [$msg1, $msg2, $stk];
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$messages]
+				'messages' => [$msg1, $msg2, $stk]
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
