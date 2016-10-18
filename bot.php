@@ -26,7 +26,7 @@ if (!is_null($events['events'])) {
 						],
 						[
 							'type' => 'text',
-							'text' => 'มีอะไรให้ช่วยไหม?'
+							'text' => 'มีอะไรให้ช่วยไหม'
 						]
 	  			];
 					break;
@@ -58,9 +58,20 @@ if (!is_null($events['events'])) {
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
+			$msg = [
+				[
+					"type" => "text",
+					"text" => "Hello, user"
+				],
+				[
+					"type" => "text",
+					"text"=> "May I help you?"
+				]
+			];
+				
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$messages],
+				'messages' => [$msg],
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
