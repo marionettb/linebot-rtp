@@ -62,18 +62,28 @@ if (!is_null($events['events'])) {
 				case 'รูป':
 					$msg1 = [
 						"type" => "image",
-				    "originalContentUrl" => "https://drive.google.com/file/d/0B3glTn1bQpYJUk9COXVFaVRmaUk/view?usp=sharing",
-				    "previewImageUrl" => "https://drive.google.com/file/d/0B3glTn1bQpYJUk9COXVFaVRmaUk/view?usp=sharing"
+				    "originalContentUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/djkhaled.jpg",
+				    "previewImageUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/djkhaled.jpg"
 					];
 					$rep_msg = [
 						'reply' => [ $msg1 ]
 					];
 					break;
-				case 'ยูทูป':
+				case 'วิดีโอ':
 					$msg1 = [
 						"type" => "video",
-						"originalContentUrl" => "https://youtu.be/_xGhK6qgPtM",
-						"previewImageUrl" => "https://youtu.be/_xGhK6qgPtM"
+						"originalContentUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/doyoumind.mp4",
+						"previewImageUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/djkhaled.jpg"
+					];
+					$rep_msg = [
+						'reply' => [ $msg1 ]
+					];
+					break;
+				case 'เพลง':
+					$msg1 = [
+						"type" => "audio",
+						"originalContentUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/doyoumind.mp3",
+						"previewImageUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/djkhaled.jpg"
 					];
 					$rep_msg = [
 						'reply' => [ $msg1 ]
