@@ -1,3 +1,13 @@
 <?php
-  echo "Hello LINE-BOT With KINGRTP";
+  $messages = [
+    [
+      'type' => 'text',
+      'text' => 'สวัสดีครับ'
+    ],
+    [
+      'type' => 'text',
+      'text' => 'มีอะไรให้ช่วยไหม?'
+    ]
+  ];
+  echo $messages;
 ?>
