@@ -19,7 +19,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			switch ($text) {
 				case 'สวัสดี':
-					$msg1 = [
+					$messages = [
 						'type' => 'text',
 						'text' => 'สวัสดีครับ'
 	  			];
@@ -27,7 +27,7 @@ if (!is_null($events['events'])) {
 						'type' => 'text',
 						'text' => 'สวัสดีครับ'
 	  			];
-					$messages = [$msg1, $msg2];
+					// $messages = [$msg1, $msg2];
 					break;
 				case 'ทดสอบ1':
 					$messages = [
@@ -70,7 +70,7 @@ if (!is_null($events['events'])) {
 			//   "packageId" => "1",
 			//   "stickerId" => "2"
 			// ];
-			$reply_msg = [$reply_msg];
+			$reply_msg = [$msg1, $msg2, $stk];
 			$data = [
 				'replyToken' => $replyToken,
 				'messages' => [$messages]
