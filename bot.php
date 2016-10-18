@@ -22,6 +22,11 @@ if (!is_null($events['events'])) {
   				'type' => 'text',
   				'text' => 'ไหว้พ่อเหอะไอ้สัส'
   			];
+      } elseif ($text == 'ทดสอบ') {
+				$messages = [
+  				'type' => 'text',
+  				'text' => 'ทดสอบครับผม'
+  			];
       } else {
         $messages = [
   				'type' => 'text',
