@@ -20,16 +20,6 @@ if (!is_null($events['events'])) {
 			switch ($text) {
 				case 'สวัสดี':
 					$messages = [
-						[
-							'type' => 'text',
-							'text' => 'สวัสดีครับ1'
-						],
-						[
-							'type' => 'text',
-							'text' => 'สวัสดีครับ2'
-		  			]
-	  			];
-					$msg2 = [
 						'type' => 'text',
 						'text' => 'สวัสดีครับ'
 	  			];
@@ -76,10 +66,10 @@ if (!is_null($events['events'])) {
 			//   "packageId" => "1",
 			//   "stickerId" => "2"
 			// ];
-			$reply_msg = [$msg1, $msg2, $stk];
+			$reply_msg = [$messages, $msg2, $stk];
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$messages]
+				'messages' => [$reply_msg]
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
