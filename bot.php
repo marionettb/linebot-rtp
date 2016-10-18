@@ -69,9 +69,9 @@ if (!is_null($events['events'])) {
 						'reply' => [ $msg1 ]
 					];
 					break;
-				case 'youtube':
+				case 'ยูทูป':
 					$msg1 = [
-						"type" => "image",
+						"type" => "video",
 						"originalContentUrl" => "https://youtu.be/_xGhK6qgPtM",
 						"previewImageUrl" => "https://youtu.be/_xGhK6qgPtM"
 					];
