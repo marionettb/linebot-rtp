@@ -6,7 +6,7 @@
   // }
   // echo 'Connect succes';
   // mysql_close($link);
-  $servername = "https://linebot.faxthai.com";
+  $servername = "linebot.faxthai.com";
   $username = "smartschool";
   $password = "smartschool456";
 
