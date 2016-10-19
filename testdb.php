@@ -1,8 +1,8 @@
 <?php
-  $link = mysql_connect('linebot.faxthai.com', 'smartschool', 'smartschool456');
+  $link = mysql_connect('107.167.89.104', 'smartschool', 'smartschool456');
   if (!$link) {
-    echo "Connected Failed";
-  } else {
-    echo "Connected successfully";
-  }
+    die('connect failed: ' . mysql_error());
+}
+echo 'Connect succes';
+mysql_close($link);
 ?>
