@@ -1,4 +1,4 @@
 <?php
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('RuHhciFle36XBJXielhR22aO689nyDsFjrzG0mBBDMvlqTsIWxBJgAdBh5LiyedayUBGmHtd0q4bxYJDbmozMr609DXroXmOyKABrJuGzd9iLpbWcKazlbwlMOORJeAxdVcOYSu8yoaAGANJpSUdqQdB04t89/1O/w1cDnyilFU=');
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'f241bea6d6db5d7778ad06a7fff1d00b']);
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('od+PiQERR00IzMSuVMVb+hSYQk5J8QIbcq7+C/S9z16pNDJwgn24hZgCe1CPW/qJBpAeNhG/iodo0Og51WJ9GlhX3vuexXb5NyFCeAOtXfS/vF4Edo8uffYTWXbqbyOsaD3oe56qK6+1fGfw4E7wVQdB04t89/1O/w1cDnyilFU=');
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'd35578662d01550b89fdadc466fa1641']);
  ?>
