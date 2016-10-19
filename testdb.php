@@ -6,9 +6,9 @@
   // }
   // echo 'Connect succes';
   // mysql_close($link);
-  $servername = "202.29.80.78";
-  $username = "root";
-  $password = "maker@min@";
+  $servername = "31.170.164.122";
+  $username = "u979516288_smart";
+  $password = "nack5357";
 
   // Create connection
   $conn = new mysqli($servername, $username, $password);
