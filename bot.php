@@ -1,19 +1,19 @@
 <?php
 $access_token = 'RuHhciFle36XBJXielhR22aO689nyDsFjrzG0mBBDMvlqTsIWxBJgAdBh5LiyedayUBGmHtd0q4bxYJDbmozMr609DXroXmOyKABrJuGzd9iLpbWcKazlbwlMOORJeAxdVcOYSu8yoaAGANJpSUdqQdB04t89/1O/w1cDnyilFU=';
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'f241bea6d6db5d7778ad06a7fff1d00b']);
-
-function getProfile($uid)
-{
-	$response = $bot->getProfile($uid);
-	if ($response->isSucceeded()) {
-	    $profile = decode_json($response->getBody);
-	  	$userProfile['displayName'] = $profile->{'displayName'};
-	    $userProfile['pictureUrl'] = $profile->{'pictureUrl'};
-	    $userProfile['statusMessage'] = $profile->{'statusMessage'};
-	}
-	return $userProfile;
-}
+// $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+// $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'f241bea6d6db5d7778ad06a7fff1d00b']);
+//
+// function getProfile($uid)
+// {
+// 	$response = $bot->getProfile($uid);
+// 	if ($response->isSucceeded()) {
+// 	    $profile = decode_json($response->getBody);
+// 	  	$userProfile['displayName'] = $profile->{'displayName'};
+// 	    $userProfile['pictureUrl'] = $profile->{'pictureUrl'};
+// 	    $userProfile['statusMessage'] = $profile->{'statusMessage'};
+// 	}
+// 	return $userProfile;
+// }
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
