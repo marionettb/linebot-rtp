@@ -13,23 +13,10 @@ function objectToArray($d)
     }
 }
 function getuser_profile($a){
-  $b=print_r($a,true);
-  $text_ex = explode('=>', $b) ;
-  $text_ex[2]=str_replace('}', NULL, $text_ex[2]);
-  $text_ex[2]=str_replace('{', NULL, $text_ex[2]);
-  $user_profle=explode(',', $text_ex[2]) ;
-  $a=explode(':', $user_profle[0]) ;
-  $a[1]=str_replace('"', NULL, $a[1]);
-  $user_profle_data['displayName']=$a[1];
-  $a=explode(':', $user_profle[1]) ;
-  $a[1]=str_replace('"', NULL, $a[1]);
-  $user_profle_data['userId']=$a[1];
-  $a=explode(':', $user_profle[2]) ;
-  $a[2]=str_replace('"', NULL, $a[2]);
-  $a[2]=str_replace('//', NULL, $a[2]);
-  $user_profle_data['pictureUrl']='http://'.$a[2];
-  $a=explode(':', $user_profle[3]) ;
-  $user_profle_data['statusMessage']=$a[1];
+  $profile = decode_json($a->getBody);
+    $user_profle_data['displayName'] = $profile->{'displayName'};
+    $user_profle_data['pictureUrl'] =  $profile->{'pictureUrl'};
+    $user_profle_data['statusMessage'] =  $profile->{'statusMessage'};
   return $user_profle_data;
 }
 
