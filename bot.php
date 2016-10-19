@@ -1,10 +1,10 @@
 <?php
 $access_token = 'RuHhciFle36XBJXielhR22aO689nyDsFjrzG0mBBDMvlqTsIWxBJgAdBh5LiyedayUBGmHtd0q4bxYJDbmozMr609DXroXmOyKABrJuGzd9iLpbWcKazlbwlMOORJeAxdVcOYSu8yoaAGANJpSUdqQdB04t89/1O/w1cDnyilFU=';
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'f241bea6d6db5d7778ad06a7fff1d00b']);
 
 function getProfile($uid)
 {
-	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'f241bea6d6db5d7778ad06a7fff1d00b']);
 	$response = $bot->getProfile($uid);
 	if ($response->isSucceeded()) {
 	    $profile = decode_json($response->getBody);
@@ -28,7 +28,6 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get UserId
 			$uid = $event['source']['userId'];
-			$userProfileData = getProfile($uid);
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
