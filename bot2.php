@@ -61,7 +61,7 @@ $statusMessage=$user_profle['statusMessage'];
 
 //bot handle
 if ((strstr($text, 'ทดสอบ') !== false)) {
-  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ทดสอบบบบบ');
-  $response = $bot->replyMessage($array['events'][0]['replyToken'], $textMessageBuilder);
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ทดสอบบบบบ Token and '.$displayName);
+  $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 }
  ?>
