@@ -28,7 +28,7 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get UserId
 			$uid = $event['source']['userId'];
-			$userData = getuserProfile($uid);
+			//$userData = getuserProfile($uid);
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
@@ -39,7 +39,7 @@ if (!is_null($events['events'])) {
 					$msg1 = [
 						'type' => 'text',
 						//'text' => 'สวัสดีครับ'.$userProfileData['displayName']
-						'text' => $userData['displayName']
+						'text' => 'test'
 	  			];
 					$msg2 = [
 						'type' => 'text',
