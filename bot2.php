@@ -66,18 +66,16 @@ if ((strstr($text, 'สวัสดี') !== false)) {
 }
 
 if ((strstr($text, 'วิดีโอ') !== false)) {
-  $urlvideo = "https://www.mangoplug.com/modules/core/client/img/brand/doyoumind.mp4";
-  $urlpic = "https://www.mangoplug.com/modules/core/client/img/brand/djkhaled.jpg";
+  $urlvideo = "https://linebot.faxthai.com/linebot-school/public/farewellballad.mp4";
+  $urlpic = "https://linebot.faxthai.com/linebot-school/public/zakkwylde.jpg";
 
-  $post = json_encode($data);
   $videoMessageBuilder = new \LINE\LINEBot\MessageBuilder\VideoMessageBuilder($urlvideo, $urlpic);
   $response = $bot->replyMessage($replyToken, $videoMessageBuilder);
 }
 
 if ((strstr($text, 'รูป') !== false)) {
-  $urlpic = "https://www.mangoplug.com/modules/core/client/img/brand/djkhaled.jpg";
+  $urlpic = "https://linebot.faxthai.com/linebot-school/public/zakkwylde.jpg";
 
-  $post = json_encode($data);
   $picMessageBuilder = new \LINE\LINEBot\MessageBuilder\ImageMessageBuilder($urlpic, $urlpic);
   $response = $bot->replyMessage($replyToken, $picMessageBuilder);
 }
