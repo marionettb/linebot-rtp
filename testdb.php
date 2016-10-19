@@ -7,7 +7,7 @@
   // echo 'Connect succes';
   // mysql_close($link);
   $servername = "202.29.80.78";
-  $username = "root";
+  $username = "linebot";
   $password = "maker@min@";
 
   // Create connection
