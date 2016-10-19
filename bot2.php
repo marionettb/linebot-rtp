@@ -66,13 +66,13 @@ if ((strstr($text, 'สวัสดี') !== false)) {
 }
 
 if ((strstr($text, 'วิดีโอ') !== false)) {
-  $msg1 = [
-    "type" => "video",
-    "originalContentUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/doyoumind.mp4",
-    "previewImageUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/djkhaled.jpg"
-  ];
+  $msg1 = '{
+    "type": "video",
+    "originalContentUrl": "https://www.mangoplug.com/modules/core/client/img/brand/doyoumind.mp4",
+    "previewImageUrl": "https://www.mangoplug.com/modules/core/client/img/brand/djkhaled.jpg"
+  }';
   $post = json_encode($data);
-  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($post);
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg1);
   $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 }
  ?>
