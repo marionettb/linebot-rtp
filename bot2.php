@@ -16,7 +16,7 @@ function getuser_profile($to){
   $response = $bot->getProfile($to);
   if ($response->isSucceeded()) {
       $profile = decode_json($response->getBody);
-      $user_profle_data['displayName'] = $profile->{'displayName'};
+      $user_profle_data['displayName'] = 'test';
       $user_profle_data['pictureUrl'] = $profile->{'pictureUrl'};
       $user_profle_data['statusMessage'] = $profile->{'statusMessage'};
       return $user_profle_data;
