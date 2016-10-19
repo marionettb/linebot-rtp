@@ -3,9 +3,9 @@ $access_token = 'RuHhciFle36XBJXielhR22aO689nyDsFjrzG0mBBDMvlqTsIWxBJgAdBh5Liyed
 
 function getUserProfile($uid)
 {
-	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('RuHhciFle36XBJXielhR22aO689nyDsFjrzG0mBBDMvlqTsIWxBJgAdBh5LiyedayUBGmHtd0q4bxYJDbmozMr609DXroXmOyKABrJuGzd9iLpbWcKazlbwlMOORJeAxdVcOYSu8yoaAGANJpSUdqQdB04t89/1O/w1cDnyilFU=');
 	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'f241bea6d6db5d7778ad06a7fff1d00b']);
-	$response = $bot->getProfile($uid);
+	$response = $bot->getProfile('U87a5cc6d92e2ee2f4f157768221370dd');
 	if ($response->isSucceeded()) {
 	    $profile = decode_json($response->getBody);
 	    $displayName['displayName'] =  $profile->{'displayName'};
@@ -28,7 +28,7 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get UserId
 			$uid = $event['source']['userId'];
-			//$userData = getuserProfile($uid);
+			$userData = getuserProfile($uid);
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
