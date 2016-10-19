@@ -8,7 +8,7 @@ function getUserProfile($uid)
 	$response = $bot->getProfile($uid);
 	if ($response->isSucceeded()) {
 	    $profile = decode_json($response->getBody);
-	  	$userProfile['displayName'] = $profile->{'displayName'};
+	  	$userProfile['displayName'] = 'test';
 	    $userProfile['pictureUrl'] = $profile->{'pictureUrl'};
 	    $userProfile['statusMessage'] = $profile->{'statusMessage'};
 	}
@@ -29,6 +29,7 @@ if (!is_null($events['events'])) {
 			// Get UserId
 			$uid = $event['source']['userId'];
 			$userProfileData = getUserProfile($uid);
+			$displayName = $userProfileData['displayName'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
@@ -38,7 +39,7 @@ if (!is_null($events['events'])) {
 					$msg1 = [
 						'type' => 'text',
 						//'text' => 'สวัสดีครับ'.$userProfileData['displayName']
-						'text' => $userProfileData['displayName']
+						'text' => $displayName
 	  			];
 					$msg2 = [
 						'type' => 'text',
