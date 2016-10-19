@@ -71,7 +71,8 @@ if ((strstr($text, 'วิดีโอ') !== false)) {
     "originalContentUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/doyoumind.mp4",
     "previewImageUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/djkhaled.jpg"
   ];
-  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg1);
+  $post = json_encode($data);
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($post);
   $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 }
  ?>
