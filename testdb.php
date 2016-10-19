@@ -1,5 +1,5 @@
 <?php
-  $link = mysql_connect('202.29.80.78', 'root', 'maker@min@');
+  $link = mysql_connect('http://linebot.faxthai.com', 'smartschool', 'smartschool456');
   if (!$link) {
     die('connect failed: ' . mysql_error());
   }
