@@ -64,4 +64,14 @@ if ((strstr($text, 'สวัสดี') !== false)) {
   $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีครับ คุณ '.$displayName);
   $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 }
+
+if ((strstr($text, 'วิดีโอ') !== false)) {
+  $msg1 = [
+    "type" => "video",
+    "originalContentUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/doyoumind.mp4",
+    "previewImageUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/djkhaled.jpg"
+  ];
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg1);
+  $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+}
  ?>
