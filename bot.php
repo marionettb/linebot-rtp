@@ -37,7 +37,7 @@ if (!is_null($events['events'])) {
 					];
 					// $messages = { $msg1, $msg2 };
 					break;
-				case 'อากาศ':
+				case $strpos($text, 'อากาศ') == true:
 					$ch1 = curl_init();
             curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
