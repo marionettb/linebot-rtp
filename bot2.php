@@ -14,7 +14,7 @@ function objectToArray($d)
 }
 function getuser_profile($a){
   $profile = decode_json($a->getBody);
-  $user_profle_data['displayName'] = $profile->{'displayName'};
+  $user_profle_data['displayName'] = 'ทดสอบ';
 
   // $b=print_r($a,true);
   // $text_ex = explode('=>', $b) ;
