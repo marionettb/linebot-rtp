@@ -100,10 +100,13 @@ if (!is_null($events['events'])) {
 					];
 					break;
 				default:
-				$messages = [
-					'type' => 'text',
-					'text' => 'out'
-				];
+					$msg1 = [
+						'type' => 'text',
+						'text' => 'เราไม่เข้าใจคำพูดของคุณ'
+					];
+					$rep_msg = [
+						'reply' => [ $msg1 ]
+					];
 					break;
 			}
 
