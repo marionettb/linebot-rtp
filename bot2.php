@@ -53,8 +53,8 @@ $text=str_replace("\n", NULL, $text);
 
 //init user Data
 $a=$bot->getProfile($to);
-$profile = decode_json($response->getBody);
-$name = $profile->{'displayName'};
+$profile = json_decode($a);
+$name = $profile->displayName;
 $user_profle=getuser_profile($a);
 $displayName=$user_profle['displayName'];
 $userId=$user_profle['userId'];
@@ -63,7 +63,7 @@ $statusMessage=$user_profle['statusMessage'];
 
 //bot handle
 if ((strstr($text, 'ทดสอบ') !== false)) {
-  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ทดสอบบบบบ 3 Token and '.$name);
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ทดสอบบบบบ 4 Token and '.$name);
   $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 }
  ?>
