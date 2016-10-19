@@ -1,5 +1,5 @@
 <?php
-  $servername = "linebot.faxthai.com";
+  $servername = "http://linebot.faxthai.com";
   $username = "smartschool";
   $password = "smartschool456";
 
