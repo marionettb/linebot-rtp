@@ -6,7 +6,7 @@
   // }
   // echo 'Connect succes';
   // mysql_close($link);
-  $servername = "31.170.164.122";
+  $servername = "linebot.pe.hu";
   $username = "u979516288_smart";
   $password = "nack5357";
 
