@@ -79,4 +79,11 @@ if ((strstr($text, 'รูป') !== false)) {
   $picMessageBuilder = new \LINE\LINEBot\MessageBuilder\ImageMessageBuilder($urlpic, $urlpic);
   $response = $bot->replyMessage($replyToken, $picMessageBuilder);
 }
+
+if ((strstr($text, 'เพลง') !== false)) {
+  $urlaud = "https://linebot.faxthai.com/linebot-school/public/farewellballad.m4a";
+
+  $audioMessageBuilder = new \LINE\LINEBot\MessageBuilder\AudioMessageBuilder($urlaud, 97000);
+  $response = $bot->replyMessage($replyToken, $audioMessageBuilder);
+}
  ?>
