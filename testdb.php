@@ -6,9 +6,9 @@
   // }
   // echo 'Connect succes';
   // mysql_close($link);
-  $servername = "linebot.pe.hu";
-  $username = "u979516288_smart";
-  $password = "nack5357";
+  $servername = "linebot.faxthai.com";
+  $username = "smartschool";
+  $password = "smartschool456";
 
   // Create connection
   $conn = new mysqli($servername, $username, $password);
