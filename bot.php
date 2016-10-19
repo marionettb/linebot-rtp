@@ -8,10 +8,9 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'f241bea6d6db5d7778ad0
 $response = $bot->getProfile('U87a5cc6d92e2ee2f4f157768221370dd');
 if ($response->isSucceeded()) {
     $profile = decode_json($response->getBody);
-    $displayName['displayName'] =  $profile->{'displayName'};
+    echo $profile->{'displayName'};
     echo $profile->{'pictureUrl'};
     echo $profile->{'statusMessage'};
-		return $displayName;
 }
 // }
 // // Get POST body content
