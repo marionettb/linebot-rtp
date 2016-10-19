@@ -60,15 +60,8 @@ $pictureUrl=$user_profle['pictureUrl'];
 $statusMessage=$user_profle['statusMessage'];
 
 //bot handle
-switch ($text) {
-  case 'สวัสดีครับ':
-    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีครับคุณ $displayName');
-    $response = $bot->replyMessage('$replyToken', $textMessageBuilder);
-    break;
-
-  default:
-    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('งง');
-    $response = $bot->replyMessage('$replyToken', $textMessageBuilder);
-    break;
+if ((strstr($text, 'ทดสอบ') !== false)) {
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ทดสอบบบบบ');
+  $response = $bot->replyMessage($array['events'][0]['replyToken'], $textMessageBuilder);
 }
  ?>
