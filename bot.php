@@ -29,7 +29,7 @@ if (!is_null($events['events'])) {
 			// Get UserId
 			$uid = $event['source']['userId'];
 			$userProfileData = getUserProfile($uid);
-			$displayName = $userProfileData['displayName'];
+			$displayName = 'test';
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
