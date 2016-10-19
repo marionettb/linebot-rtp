@@ -1,16 +1,17 @@
 <?php
 $access_token = 'RuHhciFle36XBJXielhR22aO689nyDsFjrzG0mBBDMvlqTsIWxBJgAdBh5LiyedayUBGmHtd0q4bxYJDbmozMr609DXroXmOyKABrJuGzd9iLpbWcKazlbwlMOORJeAxdVcOYSu8yoaAGANJpSUdqQdB04t89/1O/w1cDnyilFU=';
 
-function getProfile($uid)
+function getUserProfile($uid)
 {
 	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'f241bea6d6db5d7778ad06a7fff1d00b']);
 	$response = $bot->getProfile('<userId>');
 	if ($response->isSucceeded()) {
 	    $profile = decode_json($response->getBody);
-	    echo $profile->{'displayName'};
+	    $displayName['displayName'] =  $profile->{'displayName'};
 	    echo $profile->{'pictureUrl'};
 	    echo $profile->{'statusMessage'};
+			return $displayName;
 	}
 }
 // Get POST body content
@@ -27,16 +28,18 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get UserId
 			$uid = $event['source']['userId'];
+			$userData = getuserProfile($uid);
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			switch ($text) {
 				case 'สวัสดี':
+					$
 					$msg1 = [
 						'type' => 'text',
 						//'text' => 'สวัสดีครับ'.$userProfileData['displayName']
-						'text' => $uid
+						'text' => $userData['displayName']
 	  			];
 					$msg2 = [
 						'type' => 'text',
