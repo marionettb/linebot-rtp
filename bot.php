@@ -39,7 +39,7 @@ if (!is_null($events['events'])) {
 					$msg1 = [
 						'type' => 'text',
 						//'text' => 'สวัสดีครับ'.$userProfileData['displayName']
-						'text' => $displayName
+						'text' => $uid
 	  			];
 					$msg2 = [
 						'type' => 'text',
