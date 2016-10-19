@@ -41,7 +41,7 @@ $text=str_replace("\n", NULL, $text);
 //init user Data
 $a=$bot->getProfile($to);
 $user_profle=getuser_profile($a);
-$displayName=$user_profle['displayName'];
+$displayName=$a['displayName'];
 $userId=$user_profle['userId'];
 $pictureUrl=$user_profle['pictureUrl'];
 $statusMessage=$user_profle['statusMessage'];
