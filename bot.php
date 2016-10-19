@@ -28,7 +28,7 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get UserId
 			$uid = $event['source']['userId'];
-			$userProfileData = getProfile($uid);
+			//$userProfileData = getProfile($uid);
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
@@ -37,7 +37,8 @@ if (!is_null($events['events'])) {
 				case 'สวัสดี':
 					$msg1 = [
 						'type' => 'text',
-						'text' => 'สวัสดีครับ'.$userProfileData['displayName']
+						//'text' => 'สวัสดีครับ'.$userProfileData['displayName']
+						'text' => $uid
 	  			];
 					$msg2 = [
 						'type' => 'text',
