@@ -5,7 +5,7 @@ function getUserProfile($uid)
 {
 	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'f241bea6d6db5d7778ad06a7fff1d00b']);
-	$response = $bot->getProfile('<userId>');
+	$response = $bot->getProfile($uid);
 	if ($response->isSucceeded()) {
 	    $profile = decode_json($response->getBody);
 	    $displayName['displayName'] =  $profile->{'displayName'};
