@@ -70,7 +70,7 @@ if ((strstr($text, 'วิดีโอ') !== false)) {
   $urlpic = "https://www.mangoplug.com/modules/core/client/img/brand/djkhaled.jpg";
 
   $post = json_encode($data);
-  $videoMessageBuilder = new \LINE\LINEBot\MessageBuilder\videoMessageBuilder($urlvideo, $urlpic);
+  $videoMessageBuilder = new \LINE\LINEBot\MessageBuilder\VideoMessageBuilder($urlvideo, $urlpic);
   $response = $bot->replyMessage($replyToken, $videoMessageBuilder);
 }
  ?>
