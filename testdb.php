@@ -6,7 +6,7 @@
   // }
   // echo 'Connect succes';
   // mysql_close($link);
-  $servername = "202.29.80.78";
+  $servername = "makerspace.psru.ac.th";
   $username = "myuser";
   $password = "mypass";
 
