@@ -69,6 +69,16 @@ if (!is_null($events['events'])) {
 						'reply' => [ $msg1 ]
 					];
 					break;
+					case 'aika yumeno':
+						$msg1 = [
+							"type" => "image",
+					    "originalContentUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/aika.jpg",
+					    "previewImageUrl" => "https://www.mangoplug.com/modules/core/client/img/brand/aika.jpg"
+						];
+						$rep_msg = [
+							'reply' => [ $msg1 ]
+						];
+						break;
 				case 'วิดีโอ':
 					$msg1 = [
 						"type" => "video",
