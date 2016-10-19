@@ -5,4 +5,5 @@
   }
   echo 'Connect succes';
   mysql_close($link);
+  echo "test rtp";
 ?>
