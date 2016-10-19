@@ -13,10 +13,23 @@ function objectToArray($d)
     }
 }
 function getuser_profile($a){
-  $profile = decode_json($a->getBody);
-    $user_profle_data['displayName'] = $profile->{'displayName'};
-    $user_profle_data['pictureUrl'] =  $profile->{'pictureUrl'};
-    $user_profle_data['statusMessage'] =  $profile->{'statusMessage'};
+  $b=print_r($a,true);
+  $text_ex = explode('=>', $b) ;
+  $text_ex[2]=str_replace('}', NULL, $text_ex[2]);
+  $text_ex[2]=str_replace('{', NULL, $text_ex[2]);
+  $user_profle=explode(',', $text_ex[2]) ;
+  $a=explode(':', $user_profle[0]) ;
+  $a[1]=str_replace('"', NULL, $a[1]);
+  $user_profle_data['displayName']=$a[1];
+  $a=explode(':', $user_profle[1]) ;
+  $a[1]=str_replace('"', NULL, $a[1]);
+  $user_profle_data['userId']=$a[1];
+  $a=explode(':', $user_profle[2]) ;
+  $a[2]=str_replace('"', NULL, $a[2]);
+  $a[2]=str_replace('//', NULL, $a[2]);
+  $user_profle_data['pictureUrl']='http://'.$a[2];
+  $a=explode(':', $user_profle[3]) ;
+  $user_profle_data['statusMessage']=$a[1];
   return $user_profle_data;
 }
 
@@ -40,15 +53,17 @@ $text=str_replace("\n", NULL, $text);
 
 //init user Data
 $a=$bot->getProfile($to);
+$profile = decode_json($a->getBody);
+$name = $profile[0]['displayName'];
 $user_profle=getuser_profile($a);
-$displayName=$a['displayName'];
+$displayName=$user_profle['displayName'];
 $userId=$user_profle['userId'];
 $pictureUrl=$user_profle['pictureUrl'];
 $statusMessage=$user_profle['statusMessage'];
 
 //bot handle
 if ((strstr($text, 'ทดสอบ') !== false)) {
-  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ทดสอบบบบบ function and '.$displayName);
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ทดสอบบบบบ Token and '.$name);
   $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 }
  ?>
