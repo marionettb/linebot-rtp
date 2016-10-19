@@ -17,8 +17,8 @@ function getuser_profile($to){
   if ($response->isSucceeded()) {
       $profile = decode_json($response->getBody);
       $user_profle_data['displayName'] = 'test';
-      $user_profle_data['pictureUrl'] = $profile->{'pictureUrl'};
-      $user_profle_data['statusMessage'] = $profile->{'statusMessage'};
+      // $user_profle_data['pictureUrl'] = $profile->{'pictureUrl'};
+      // $user_profle_data['statusMessage'] = $profile->{'statusMessage'};
       return $user_profle_data;
   }
   //return $user_profle_data;
