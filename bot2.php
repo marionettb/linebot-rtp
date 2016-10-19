@@ -54,7 +54,7 @@ $text=str_replace("\n", NULL, $text);
 //init user Data
 $a=$bot->getProfile($to);
 $profile = json_decode($a, true);
-$name = $profile[0]['displayName'];
+$name = $profile['displayName'];
 $user_profle=getuser_profile($a);
 $displayName=$user_profle['displayName'];
 $userId=$user_profle['userId'];
