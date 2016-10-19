@@ -1,5 +1,5 @@
 <?php
-  $servername = "107.167.89.104";
+  $servername = "smartschool@107.167.89.104";
   $username = "smartschool";
   $password = "smartschool456";
 
