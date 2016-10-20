@@ -1,8 +1,12 @@
 <?php
   require "vendor/autoload.php";
-  require "src/setting.php";
-  require "src/handle.php";
-  require "src/init.php";
+  // require "src/setting.php";
+  // require "src/handle.php";
+  // require "src/init.php";
+  foreach (glob("src/*.php") as $filename)
+  {
+      require $filename;
+  }
   foreach (glob("corehandle/*.php") as $filename)
   {
       require $filename;
