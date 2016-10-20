@@ -1,9 +1,8 @@
 <?php
 require "vendor/autoload.php";
-foreach (glob("src/*.php") as $src)
-{
-    require $src;
-}
+require "src/handle.php";
+require "src/init.php";
+require "src/setting.php";
 foreach (glob("corehandle/*.php") as $core)
 {
     require $core;
