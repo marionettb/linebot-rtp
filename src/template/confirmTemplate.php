@@ -1,5 +1,6 @@
 <?php
   use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
+  use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 
   if ((strstr($text, 'เกีย') !== false)) {
       $response = $bot->replyMessage($replyToken, new TemplateMessageBuilder(
