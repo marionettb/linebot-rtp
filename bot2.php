@@ -3,7 +3,7 @@ require "vendor/autoload.php";
 require "src/handle.php";
 require "src/init.php";
 require "src/setting.php";
-foreach (glob("corehandle/*.php") as $core)
+foreach (glob("src/corehandle/*.php") as $core)
 {
     require $core;
 }
