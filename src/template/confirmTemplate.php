@@ -8,14 +8,4 @@
                           ])
                       ));
   }
-
-  if ((strstr($text, 'Confirm') !== false)) {
-      $response = $bot->replyMessage($replyToken, new TemplateMessageBuilder(
-                          'Confirm alt text',
-                          new ConfirmTemplateBuilder('Do it?', [
-                              new MessageTemplateActionBuilder('Yes', 'Yes!'),
-                              new MessageTemplateActionBuilder('No', 'No!'),
-                          ])
-                      ));
-  }
- ?>
+?>

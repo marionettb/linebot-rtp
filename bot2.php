@@ -3,7 +3,7 @@ require "vendor/autoload.php";
 require "src/setting.php";
 require "src/handle.php";
 require "src/init.php";
-require "src/template/confirmTemplate.php";
+include "src/template/confirmTemplate.php";
 // foreach (glob("src/corehandle/*.php") as $core)
 // {
 //     require $core;
