@@ -1,5 +1,11 @@
 <?php
 require "vendor/autoload.php";
+//init dependencies
+use LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
+
 //handle function
 function objectToArray($d)
 {
@@ -61,7 +67,7 @@ $statusMessage=$user_profle['statusMessage'];
 
 //bot handle
 if ((strstr($text, 'สวัสดี') !== false)) {
-  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีครับ คุณ '.$displayName);
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีครับ '.$displayName);
   $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 }
 
@@ -106,13 +112,12 @@ if ((strstr($text, 'เพลง') !== false)) {
 }
 
 if ((strstr($text, 'Confirm') !== false)) {
-    $confirm = new TemplateMessageBuilder(
+    $response = $bot->replyMessage($replyToken, new TemplateMessageBuilder(
                         'Confirm alt text',
                         new ConfirmTemplateBuilder('Do it?', [
                             new MessageTemplateActionBuilder('Yes', 'Yes!'),
                             new MessageTemplateActionBuilder('No', 'No!'),
                         ])
-                    );
-    $response = $bot->replyMessage($replyToken, $confirm);
+                    ));
 }
  ?>
