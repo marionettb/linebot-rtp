@@ -152,20 +152,21 @@ if ((strstr($text, 'Confirm') !== false)) {
                     ));
 }
 
-if ((strstr($text, 'Button') !== false)) {
+if ((strstr($text, 'psru') !== false)) {
   $imageUrl = 'https://linebot.faxthai.com/linebot-school/public/zakkwylde.jpg';
                 $buttonTemplateBuilder = new ButtonTemplateBuilder(
-                    'My button sample',
-                    'Hello my button',
+                    'PSRU Contact',
+                    'Hello Student',
                     $imageUrl,
                     [
-                        new UriTemplateActionBuilder('Go to line.me', 'https://line.me'),
-                        new PostbackTemplateActionBuilder('Buy', 'action=buy&itemid=123'),
-                        new PostbackTemplateActionBuilder('Add to cart', 'action=add&itemid=123'),
+                        new UriTemplateActionBuilder('ตรวจสอบความปลอดภัย', 'http://thahinc.psru.ac.th'),
+                        new UriTemplateActionBuilder('เว็ปไซต์มหาวิทยาลัย', 'http://psru.ac.th'),
+                        //new PostbackTemplateActionBuilder('Buy', 'action=buy&itemid=123'),
+                        //new PostbackTemplateActionBuilder('Add to cart', 'action=add&itemid=123'),
                         new MessageTemplateActionBuilder('Say message', 'hello hello'),
                     ]
                 );
-                $templateMessage = new TemplateMessageBuilder('Button alt text', $buttonTemplateBuilder);
+                $templateMessage = new TemplateMessageBuilder('PSRU contact', $buttonTemplateBuilder);
                 $response = $bot->replyMessage($replyToken, $templateMessage);
 }
 
