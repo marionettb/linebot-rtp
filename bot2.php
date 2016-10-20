@@ -133,4 +133,21 @@ if ((strstr($text, 'Confirm') !== false)) {
                         ])
                     ));
 }
+
+if ((strstr($text, 'Button') !== false)) {
+  $imageUrl = 'http://linebot.faxthai.com/linebot-school/public/00.png';
+                $buttonTemplateBuilder = new ButtonTemplateBuilder(
+                    'My button sample',
+                    'Hello my button',
+                    $imageUrl,
+                    [
+                        new UriTemplateActionBuilder('Go to line.me', 'https://line.me'),
+                        new PostbackTemplateActionBuilder('Buy', 'action=buy&itemid=123'),
+                        new PostbackTemplateActionBuilder('Add to cart', 'action=add&itemid=123'),
+                        new MessageTemplateActionBuilder('Say message', 'hello hello'),
+                    ]
+                );
+                $templateMessage = new TemplateMessageBuilder('Button alt text', $buttonTemplateBuilder);
+                $response = $bot->replyMessage($replyToken, $templateMessage);
+}
  ?>
