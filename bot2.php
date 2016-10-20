@@ -1,16 +1,16 @@
 <?php
 require "vendor/autoload.php";
-require "src/handle.php";
-require "src/init.php";
 require "src/setting.php";
-foreach (glob("src/corehandle/*.php") as $core)
-{
-    require $core;
-}
-foreach (glob("template/*.php") as $template)
-{
-    require $template;
-}
+require "src/init.php";
+require "src/handle.php";
+// foreach (glob("src/corehandle/*.php") as $core)
+// {
+//     require $core;
+// }
+// foreach (glob("template/*.php") as $template)
+// {
+//     require $template;
+// }
 //init Line dependencies
 use LINE\LINEBot;
 use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
@@ -32,11 +32,11 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
 
 
 //bot handle area
-// if ((strstr($text, 'สวัสดี') !== false)) {
-//   $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีค่ะ '.$displayName);
-//   $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-//   // $log->info("Got text message from $displayName: $text");
-// }
+if ((strstr($text, 'สวัสดี') !== false)) {
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีค่ะ '.$displayName);
+  $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+  // $log->info("Got text message from $displayName: $text");
+}
 //
 // if ((strstr($text, 'อากาศ') !== false)) {
 //   $ch1 = curl_init();
