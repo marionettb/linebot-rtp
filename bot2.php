@@ -1,6 +1,6 @@
 <?php
 require "vendor/autoload.php";
-require "src/setting.php";
+//require "src/setting.php";
 require "src/init.php";
 require "src/handle.php";
 // foreach (glob("src/corehandle/*.php") as $core)
@@ -30,6 +30,9 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
 
+
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('RuHhciFle36XBJXielhR22aO689nyDsFjrzG0mBBDMvlqTsIWxBJgAdBh5LiyedayUBGmHtd0q4bxYJDbmozMr609DXroXmOyKABrJuGzd9iLpbWcKazlbwlMOORJeAxdVcOYSu8yoaAGANJpSUdqQdB04t89/1O/w1cDnyilFU=');
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'da108dc294c0253688b872a630e9fd31']);
 
 //bot handle area
 if ((strstr($text, 'สวัสดี') !== false)) {
