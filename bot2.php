@@ -94,18 +94,19 @@ if ((strstr($text, 'สวัสดี') !== false)) {
 
 if ((strstr($text, 'อากาศ') !== false)) {
   $ch1 = curl_init();
-    curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch1, CURLOPT_URL, 'http://api.wunderground.com/api/71f7e550467fb82d/forecast/lang:TH/q/Thailand/phitsanulok.json');
-    $result1 = curl_exec($ch1);
-    curl_close($ch1);
+  curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+  //.str_replace(' ', '%20', $text_ex[1]).' partials string in wunderground
+  curl_setopt($ch1, CURLOPT_URL, 'http://api.wunderground.com/api/71f7e550467fb82d/forecast/lang:TH/q/Thailand/phitsanulok.json');
+  $result1 = curl_exec($ch1);
+  curl_close($ch1);
 
-    $obj = json_decode($result1, true);
-    if(isset($obj['forecast']['txt_forecast']['forecastday'][0]['fcttext_metric'])){
-        $result_text = $obj['forecast']['txt_forecast']['forecastday'][0]['fcttext_metric'];
-    }else{
-        $result_text = 'ไม่พบข้อมูล';
-    }
+  $obj = json_decode($result1, true);
+  if(isset($obj['forecast']['txt_forecast']['forecastday'][0]['fcttext_metric'])){
+      $result_text = $obj['forecast']['txt_forecast']['forecastday'][0]['fcttext_metric'];
+  }else{//ถ้าไม่เจอกับตอบกลับว่าไม่พบข้อมูล
+      $result_text = 'ไม่พบข้อมูล';
+  }
   $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($result_text);
   $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 }
