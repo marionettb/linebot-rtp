@@ -96,7 +96,7 @@ if ((strstr($text, 'อากาศ') !== false)) {
   $ch1 = curl_init();
     curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch1, CURLOPT_URL, 'http://api.wunderground.com/api/cf7dc205e34e58be/forecast/lang:TH/q/Thailand/phitsanulok.json');
+    curl_setopt($ch1, CURLOPT_URL, 'http://api.wunderground.com/api/71f7e550467fb82d/forecast/lang:TH/q/Thailand/phitsanulok.json');
     $result1 = curl_exec($ch1);
     curl_close($ch1);
 
