@@ -1,19 +1,6 @@
 <?php
 $access_token = 'RuHhciFle36XBJXielhR22aO689nyDsFjrzG0mBBDMvlqTsIWxBJgAdBh5LiyedayUBGmHtd0q4bxYJDbmozMr609DXroXmOyKABrJuGzd9iLpbWcKazlbwlMOORJeAxdVcOYSu8yoaAGANJpSUdqQdB04t89/1O/w1cDnyilFU=';
 
-function getUserProfile($uid)
-{
-	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('RuHhciFle36XBJXielhR22aO689nyDsFjrzG0mBBDMvlqTsIWxBJgAdBh5LiyedayUBGmHtd0q4bxYJDbmozMr609DXroXmOyKABrJuGzd9iLpbWcKazlbwlMOORJeAxdVcOYSu8yoaAGANJpSUdqQdB04t89/1O/w1cDnyilFU=');
-	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'f241bea6d6db5d7778ad06a7fff1d00b']);
-	$response = $bot->getProfile('U87a5cc6d92e2ee2f4f157768221370dd');
-	if ($response->isSucceeded()) {
-	    $profile = decode_json($response->getBody);
-	    $displayName['displayName'] =  $profile->{'displayName'};
-	    echo $profile->{'pictureUrl'};
-	    echo $profile->{'statusMessage'};
-			return $displayName;
-	}
-}
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -35,7 +22,6 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			switch ($text) {
 				case 'สวัสดี':
-					$
 					$msg1 = [
 						'type' => 'text',
 						//'text' => 'สวัสดีครับ'.$userProfileData['displayName']
@@ -130,19 +116,7 @@ if (!is_null($events['events'])) {
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
-			// $msg1 = [
-			// 	"type" => "text",
-			// 	"text" => "สวัสดีครับ2"
-			// ];
-			$msg2 = [
-				"type" => "text",
-				"text" => "มีอะไรให้ช่วยไหม?"
-			];
-			$stk = [
-				"type" => "sticker",
-			  "packageId" => "1",
-			  "stickerId" => "2"
-			];
+
 			$reply_msg = [$msg1, $msg2, $stk];
 			$data = [
 				'replyToken' => $replyToken,
