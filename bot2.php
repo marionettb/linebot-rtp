@@ -132,12 +132,12 @@ if ((strstr($text, 'เพลง') !== false)) {
   $response = $bot->replyMessage($replyToken, $audioMessageBuilder);
 }
 
-if ((strstr($text, 'Confirm') !== false)) {
+if ((strstr($text, 'เกีย') !== false)) {
     $response = $bot->replyMessage($replyToken, new TemplateMessageBuilder(
                         'Confirm alt text',
-                        new ConfirmTemplateBuilder('Do it?', [
-                            new MessageTemplateActionBuilder('Yes', 'Yes!'),
-                            new MessageTemplateActionBuilder('No', 'No!'),
+                        new ConfirmTemplateBuilder('คุณกลัวเมียหรือไม่?', [
+                            new MessageTemplateActionBuilder('กลัว', '555555555555 อ่อน!'),
+                            new MessageTemplateActionBuilder('ไม่กลัว', 'ใช่ป่าวววว!'),
                         ])
                     ));
 }
