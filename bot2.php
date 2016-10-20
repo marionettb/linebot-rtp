@@ -3,13 +3,13 @@ require "vendor/autoload.php";
 require "src/setting.php";
 require "src/handle.php";
 require "src/init.php";
-foreach (glob("src/corehandle/*.php") as $filename)
+foreach (glob("src/corehandle/*.php") as $core)
 {
-    require $filename;
+    require $core;
 }
-foreach (glob("src/corehandle/template/*.php") as $filename)
+foreach (glob("src/template/*.php") as $template)
 {
-    require $filename;
+    require $template;
 }
 //init Line dependencies
 use LINE\LINEBot;
