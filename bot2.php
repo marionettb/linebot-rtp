@@ -1,6 +1,6 @@
 <?php
 require "vendor/autoload.php";
-//init dependencies
+//init Line dependencies
 use LINE\LINEBot;
 use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
 use LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder;
@@ -18,6 +18,13 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
+
+//init MongoLog
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+$log = new Logger('linebot');
+$log->pushHandler(new StreamHandler('public/msg.log', Logger::WARNING));
 
 //handle function
 function objectToArray($d)
@@ -82,6 +89,7 @@ $statusMessage=$user_profle['statusMessage'];
 if ((strstr($text, 'สวัสดี') !== false)) {
   $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีครับ คุณ '.$displayName);
   $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+  $log->info("Got text message from $displayName: $text");
 }
 
 if ((strstr($text, 'อากาศ') !== false)) {
