@@ -1,5 +1,6 @@
 <?php
   require "vendor/autoload.php";
+  require "src/setting.php";
   //init Line dependencies
   use LINE\LINEBot;
   use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
@@ -56,8 +57,8 @@
     return $user_profle_data;
   }
   //init line bot
-  $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('RuHhciFle36XBJXielhR22aO689nyDsFjrzG0mBBDMvlqTsIWxBJgAdBh5LiyedayUBGmHtd0q4bxYJDbmozMr609DXroXmOyKABrJuGzd9iLpbWcKazlbwlMOORJeAxdVcOYSu8yoaAGANJpSUdqQdB04t89/1O/w1cDnyilFU=');
-  $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'da108dc294c0253688b872a630e9fd31']);
+  // $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('RuHhciFle36XBJXielhR22aO689nyDsFjrzG0mBBDMvlqTsIWxBJgAdBh5LiyedayUBGmHtd0q4bxYJDbmozMr609DXroXmOyKABrJuGzd9iLpbWcKazlbwlMOORJeAxdVcOYSu8yoaAGANJpSUdqQdB04t89/1O/w1cDnyilFU=');
+  // $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'da108dc294c0253688b872a630e9fd31']);
   //get input
   $json_string = file_get_contents('php://input');
   $jsonObj = json_decode($json_string);
