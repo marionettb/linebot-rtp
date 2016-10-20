@@ -135,7 +135,7 @@ if ((strstr($text, 'Confirm') !== false)) {
 }
 
 if ((strstr($text, 'Button') !== false)) {
-  $imageUrl = 'http://linebot.faxthai.com/linebot-school/public/00.png';
+  $imageUrl = 'https://linebot.faxthai.com/linebot-school/public/00.jpg';
                 $buttonTemplateBuilder = new ButtonTemplateBuilder(
                     'My button sample',
                     'Hello my button',
