@@ -153,7 +153,7 @@ if ((strstr($text, 'Confirm') !== false)) {
 }
 
 if ((strstr($text, 'psru') !== false)) {
-  $imageUrl = 'https://linebot.faxthai.com/linebot-school/public/zakkwylde.jpg';
+  $imageUrl = 'https://linebot.faxthai.com/linebot-school/public/psru.jpg';
                 $buttonTemplateBuilder = new ButtonTemplateBuilder(
                     'PSRU Contact',
                     'Hello Student',
