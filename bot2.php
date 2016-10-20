@@ -1,6 +1,19 @@
 <?php
 require "vendor/autoload.php";
 //init dependencies
+use LINE\LINEBot;
+use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
+use LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder;
+use LINE\LINEBot\ImagemapActionBuilder\ImagemapUriActionBuilder;
+use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
+use LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
+use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
+use LINE\LINEBot\Event\MessageEvent\TextMessage;
+use LINE\LINEBot\KitchenSink\EventHandler;
+use LINE\LINEBot\KitchenSink\EventHandler\MessageHandler\Util\UrlBuilder;
+use LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
+use LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateMessageBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
@@ -67,7 +80,7 @@ $statusMessage=$user_profle['statusMessage'];
 
 //bot handle
 if ((strstr($text, 'สวัสดี') !== false)) {
-  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีครับ '.$displayName);
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีครับ คุณ '.$displayName);
   $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 }
 
