@@ -24,7 +24,7 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 $log = new Logger('linebot');
-$log->pushHandler(new StreamHandler('public/msg.log', Logger::WARNING));
+$log->pushHandler(new StreamHandler('log/msg.log', Logger::WARNING));
 
 //handle function
 function objectToArray($d)
@@ -87,7 +87,7 @@ $statusMessage=$user_profle['statusMessage'];
 
 //bot handle
 if ((strstr($text, 'สวัสดี') !== false)) {
-  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีครับ คุณ '.$displayName);
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีครับ '.$displayName);
   $response = $bot->replyMessage($replyToken, $textMessageBuilder);
   $log->info("Got text message from $displayName: $text");
 }
