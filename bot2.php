@@ -135,7 +135,7 @@ if ((strstr($text, 'Confirm') !== false)) {
 }
 
 if ((strstr($text, 'Button') !== false)) {
-  $imageUrl = 'https://linebot.faxthai.com/linebot-school/public/00.jpg';
+  $imageUrl = 'https://linebot.faxthai.com/linebot-school/public/zakkwylde.jpg';
                 $buttonTemplateBuilder = new ButtonTemplateBuilder(
                     'My button sample',
                     'Hello my button',
@@ -153,12 +153,13 @@ if ((strstr($text, 'Button') !== false)) {
 
 if ((strstr($text, 'Carousel') !== false)) {
   $imageUrl = 'https://linebot.faxthai.com/linebot-school/public/00.jpg';
+  $imageUrl2 = 'https://linebot.faxthai.com/linebot-school/public/zakkwylde.jpg';
                 $carouselTemplateBuilder = new CarouselTemplateBuilder([
                     new CarouselColumnTemplateBuilder('foo', 'bar', $imageUrl, [
                         new UriTemplateActionBuilder('Go to line.me', 'https://line.me'),
                         new PostbackTemplateActionBuilder('Buy', 'action=buy&itemid=123'),
                     ]),
-                    new CarouselColumnTemplateBuilder('buz', 'qux', $imageUrl, [
+                    new CarouselColumnTemplateBuilder('buz', 'qux', $imageUrl2, [
                         new PostbackTemplateActionBuilder('Add to cart', 'action=add&itemid=123'),
                         new MessageTemplateActionBuilder('Say message', 'hello hello'),
                     ]),
