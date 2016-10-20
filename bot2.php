@@ -3,7 +3,7 @@ require "vendor/autoload.php";
 require "src/setting.php";
 require "src/handle.php";
 require "src/init.php";
-// require "src/template/confirmTemplate.php";
+//require "src/template/confirmTemplate.php";
  foreach (glob("src/corehandle/*.php") as $core)
 {
     require $core;
@@ -75,15 +75,15 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
 //   $audioMessageBuilder = new \LINE\LINEBot\MessageBuilder\AudioMessageBuilder($urlaud, 97000);
 //   $response = $bot->replyMessage($replyToken, $audioMessageBuilder);
 // }
-// if ((strstr($text, 'เกีย') !== false)) {
-//     $response = $bot->replyMessage($replyToken, new TemplateMessageBuilder(
-//                         'ทดสอบความเกีย',
-//                         new ConfirmTemplateBuilder('คุณกลัวเมียหรือไม่?', [
-//                             new MessageTemplateActionBuilder('กลัว', '555555555555 อ่อน!'),
-//                             new MessageTemplateActionBuilder('ไม่กลัว', 'ใช่ป่าวววว!'),
-//                         ])
-//                     ));
-// }
+if ((strstr($text, 'เกีย') !== false)) {
+    $response = $bot->replyMessage($replyToken, new TemplateMessageBuilder(
+                        'ทดสอบความเกีย',
+                        new ConfirmTemplateBuilder('คุณกลัวเมียหรือไม่?', [
+                            new MessageTemplateActionBuilder('กลัว', '555555555555 อ่อน!'),
+                            new MessageTemplateActionBuilder('ไม่กลัว', 'ใช่ป่าวววว!'),
+                        ])
+                    ));
+}
 //
 // if ((strstr($text, 'Confirm') !== false)) {
 //     $response = $bot->replyMessage($replyToken, new TemplateMessageBuilder(
