@@ -1,12 +1,16 @@
 <?php
 require "vendor/autoload.php";
-require "src/setting.php";
-require "src/handle.php";
-require "src/init.php";
-require "template/confirmTemplate.php";
- foreach (glob("src/corehandle/*.php") as $core)
+foreach (glob("src/*.php") as $src)
+{
+    require $src;
+}
+foreach (glob("corehandle/*.php") as $core)
 {
     require $core;
+}
+foreach (glob("template/*.php") as $template)
+{
+    require $template;
 }
 //init Line dependencies
 use LINE\LINEBot;
@@ -95,78 +99,78 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
 //                     ));
 // }
 
-if ((strstr($text, 'psru') !== false) || (strstr($text, 'Psru') !== false)) {
-  $imageUrl = 'https://linebot.faxthai.com/linebot-school/public/psru.jpg';
-                $buttonTemplateBuilder = new ButtonTemplateBuilder(
-                    'PSRU Contact',
-                    'Hello Student',
-                    $imageUrl,
-                    [
-                        new UriTemplateActionBuilder('ตรวจสอบความปลอดภัย', 'http://thahinc.psru.ac.th'),
-                        new UriTemplateActionBuilder('เว็ปไซต์มหาวิทยาลัย', 'http://psru.ac.th'),
-                        //new PostbackTemplateActionBuilder('Buy', 'action=buy&itemid=123'),
-                        //new PostbackTemplateActionBuilder('Add to cart', 'action=add&itemid=123'),
-                        new MessageTemplateActionBuilder('Say message', 'hello hello'),
-                    ]
-                );
-                $templateMessage = new TemplateMessageBuilder('PSRU contact', $buttonTemplateBuilder);
-                $response = $bot->replyMessage($replyToken, $templateMessage);
-}
-
-if ((strstr($text, 'Carousel') !== false)) {
-  $imageUrl = 'https://linebot.faxthai.com/linebot-school/public/00.jpg';
-  $imageUrl2 = 'https://linebot.faxthai.com/linebot-school/public/zakkwylde.jpg';
-                $carouselTemplateBuilder = new CarouselTemplateBuilder([
-                    new CarouselColumnTemplateBuilder('foo', 'bar', $imageUrl, [
-                        new UriTemplateActionBuilder('Go to line.me', 'https://line.me'),
-                        new PostbackTemplateActionBuilder('Buy', 'action=buy&itemid=123'),
-                    ]),
-                    new CarouselColumnTemplateBuilder('buz', 'qux', $imageUrl2, [
-                        new PostbackTemplateActionBuilder('Add to cart', 'action=add&itemid=123'),
-                        new MessageTemplateActionBuilder('Say message', 'hello hello'),
-                    ]),
-                ]);
-                $templateMessage = new TemplateMessageBuilder('Button alt text', $carouselTemplateBuilder);
-                $response = $bot->replyMessage($replyToken, $templateMessage);
-}
-
-if ((strstr($text, 'ค้นหา') !== false)) {
-  $text_ex = explode('@', $text);
-  if($text_ex[0] == "ค้นหา"){
-      $ch1 = curl_init();
-      curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
-      curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
-      curl_setopt($ch1, CURLOPT_URL, 'https://th.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles='.$text_ex[1]);
-      $result1 = curl_exec($ch1);
-      curl_close($ch1);
-
-      $obj = json_decode($result1, true);
-
-      foreach($obj['query']['pages'] as $key => $val){
-
-          $result_text = $val['extract'];
-      }
-
-      if(empty($result_text)){
-          $ch1 = curl_init();
-          curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
-          curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
-          curl_setopt($ch1, CURLOPT_URL, 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles='.$text_ex[1]);
-          $result1 = curl_exec($ch1);
-          curl_close($ch1);
-
-          $obj = json_decode($result1, true);
-
-          foreach($obj['query']['pages'] as $key => $val){
-
-              $result_text = $val['extract'];
-          }
-      }
-      if(empty($result_text)){//หาจาก en ไม่พบก็บอกว่า ไม่พบข้อมูล ตอบกลับไป
-          $result_text = 'ไม่พบข้อมูล';
-      }
-      $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($result_text);
-      $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-  }
-}
+// if ((strstr($text, 'psru') !== false) || (strstr($text, 'Psru') !== false)) {
+//   $imageUrl = 'https://linebot.faxthai.com/linebot-school/public/psru.jpg';
+//                 $buttonTemplateBuilder = new ButtonTemplateBuilder(
+//                     'PSRU Contact',
+//                     'Hello Student',
+//                     $imageUrl,
+//                     [
+//                         new UriTemplateActionBuilder('ตรวจสอบความปลอดภัย', 'http://thahinc.psru.ac.th'),
+//                         new UriTemplateActionBuilder('เว็ปไซต์มหาวิทยาลัย', 'http://psru.ac.th'),
+//                         //new PostbackTemplateActionBuilder('Buy', 'action=buy&itemid=123'),
+//                         //new PostbackTemplateActionBuilder('Add to cart', 'action=add&itemid=123'),
+//                         new MessageTemplateActionBuilder('Say message', 'hello hello'),
+//                     ]
+//                 );
+//                 $templateMessage = new TemplateMessageBuilder('PSRU contact', $buttonTemplateBuilder);
+//                 $response = $bot->replyMessage($replyToken, $templateMessage);
+// }
+//
+// if ((strstr($text, 'Carousel') !== false)) {
+//   $imageUrl = 'https://linebot.faxthai.com/linebot-school/public/00.jpg';
+//   $imageUrl2 = 'https://linebot.faxthai.com/linebot-school/public/zakkwylde.jpg';
+//                 $carouselTemplateBuilder = new CarouselTemplateBuilder([
+//                     new CarouselColumnTemplateBuilder('foo', 'bar', $imageUrl, [
+//                         new UriTemplateActionBuilder('Go to line.me', 'https://line.me'),
+//                         new PostbackTemplateActionBuilder('Buy', 'action=buy&itemid=123'),
+//                     ]),
+//                     new CarouselColumnTemplateBuilder('buz', 'qux', $imageUrl2, [
+//                         new PostbackTemplateActionBuilder('Add to cart', 'action=add&itemid=123'),
+//                         new MessageTemplateActionBuilder('Say message', 'hello hello'),
+//                     ]),
+//                 ]);
+//                 $templateMessage = new TemplateMessageBuilder('Button alt text', $carouselTemplateBuilder);
+//                 $response = $bot->replyMessage($replyToken, $templateMessage);
+// }
+//
+// if ((strstr($text, 'ค้นหา') !== false)) {
+//   $text_ex = explode('@', $text);
+//   if($text_ex[0] == "ค้นหา"){
+//       $ch1 = curl_init();
+//       curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
+//       curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+//       curl_setopt($ch1, CURLOPT_URL, 'https://th.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles='.$text_ex[1]);
+//       $result1 = curl_exec($ch1);
+//       curl_close($ch1);
+//
+//       $obj = json_decode($result1, true);
+//
+//       foreach($obj['query']['pages'] as $key => $val){
+//
+//           $result_text = $val['extract'];
+//       }
+//
+//       if(empty($result_text)){
+//           $ch1 = curl_init();
+//           curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
+//           curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+//           curl_setopt($ch1, CURLOPT_URL, 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles='.$text_ex[1]);
+//           $result1 = curl_exec($ch1);
+//           curl_close($ch1);
+//
+//           $obj = json_decode($result1, true);
+//
+//           foreach($obj['query']['pages'] as $key => $val){
+//
+//               $result_text = $val['extract'];
+//           }
+//       }
+//       if(empty($result_text)){//หาจาก en ไม่พบก็บอกว่า ไม่พบข้อมูล ตอบกลับไป
+//           $result_text = 'ไม่พบข้อมูล';
+//       }
+//       $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($result_text);
+//       $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+//   }
+// }
  ?>

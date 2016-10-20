@@ -1,4 +1,10 @@
 <?php
+use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
+use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
+use LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateMessageBuilder;
+
 if ((strstr($text, 'Carousel') !== false)) {
   $imageUrl = 'https://linebot.faxthai.com/linebot-school/public/00.jpg';
   $imageUrl2 = 'https://linebot.faxthai.com/linebot-school/public/zakkwylde.jpg';
