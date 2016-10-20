@@ -3,6 +3,7 @@ require "vendor/autoload.php";
 require "src/setting.php";
 require "src/handle.php";
 require "src/init.php";
+require "src/template/confirmTemplate.php";
 // foreach (glob("src/corehandle/*.php") as $core)
 // {
 //     require $core;
@@ -74,25 +75,25 @@ if ((strstr($text, 'เพลง') !== false)) {
   $response = $bot->replyMessage($replyToken, $audioMessageBuilder);
 }
 
-if ((strstr($text, 'เกีย') !== false)) {
-    $response = $bot->replyMessage($replyToken, new TemplateMessageBuilder(
-                        'ทดสอบความเกีย',
-                        new ConfirmTemplateBuilder('คุณกลัวเมียหรือไม่?', [
-                            new MessageTemplateActionBuilder('กลัว', '555555555555 อ่อน!'),
-                            new MessageTemplateActionBuilder('ไม่กลัว', 'ใช่ป่าวววว!'),
-                        ])
-                    ));
-}
-
-if ((strstr($text, 'Confirm') !== false)) {
-    $response = $bot->replyMessage($replyToken, new TemplateMessageBuilder(
-                        'Confirm alt text',
-                        new ConfirmTemplateBuilder('Do it?', [
-                            new MessageTemplateActionBuilder('Yes', 'Yes!'),
-                            new MessageTemplateActionBuilder('No', 'No!'),
-                        ])
-                    ));
-}
+// if ((strstr($text, 'เกีย') !== false)) {
+//     $response = $bot->replyMessage($replyToken, new TemplateMessageBuilder(
+//                         'ทดสอบความเกีย',
+//                         new ConfirmTemplateBuilder('คุณกลัวเมียหรือไม่?', [
+//                             new MessageTemplateActionBuilder('กลัว', '555555555555 อ่อน!'),
+//                             new MessageTemplateActionBuilder('ไม่กลัว', 'ใช่ป่าวววว!'),
+//                         ])
+//                     ));
+// }
+//
+// if ((strstr($text, 'Confirm') !== false)) {
+//     $response = $bot->replyMessage($replyToken, new TemplateMessageBuilder(
+//                         'Confirm alt text',
+//                         new ConfirmTemplateBuilder('Do it?', [
+//                             new MessageTemplateActionBuilder('Yes', 'Yes!'),
+//                             new MessageTemplateActionBuilder('No', 'No!'),
+//                         ])
+//                     ));
+// }
 
 if ((strstr($text, 'psru') !== false) || (strstr($text, 'Psru') !== false)) {
   $imageUrl = 'https://linebot.faxthai.com/linebot-school/public/psru.jpg';
