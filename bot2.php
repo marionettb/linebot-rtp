@@ -26,7 +26,7 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
 
-bot handle area
+//bot handle area
 if ((strstr($text, 'สวัสดี') !== false)) {
   $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีค่ะ '.$displayName);
   $response = $bot->replyMessage($replyToken, $textMessageBuilder);
