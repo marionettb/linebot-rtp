@@ -3,14 +3,7 @@ require "vendor/autoload.php";
 require "src/setting.php";
 require "src/handle.php";
 require "src/init.php";
-foreach (glob("corehandle/*.php") as $filename)
-{
-    require $filename;
-}
-foreach (glob("corehandle/template/*.php") as $filename)
-{
-    require $filename;
-}
+require "corehandle/*.php";
 //init Line dependencies
 use LINE\LINEBot;
 use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
