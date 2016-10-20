@@ -60,13 +60,14 @@ $pictureUrl=$user_profle['pictureUrl'];
 $statusMessage=$user_profle['statusMessage'];
 
 //bot handle
-if ((strstr($text, 'สวัสดี') !== false)) {
-  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีครับ คุณ '.$displayName);
-  $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-}
+if ($text !== null) {
+  if ((strstr($text, 'สวัสดี') !== false)) {
+    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีครับ คุณ '.$displayName);
+    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+  }
 
-if ((strstr($text, 'อากาศ') !== false)) {
-  $ch1 = curl_init();
+  if ((strstr($text, 'อากาศ') !== false)) {
+    $ch1 = curl_init();
     curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch1, CURLOPT_URL, 'http://api.wunderground.com/api/cf7dc205e34e58be/forecast/lang:TH/q/Thailand/%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3.json');
@@ -75,33 +76,37 @@ if ((strstr($text, 'อากาศ') !== false)) {
 
     $obj = json_decode($result1, true);
     if(isset($obj['forecast']['txt_forecast']['forecastday'][0]['fcttext_metric'])){
-        $result_text = $obj['forecast']['txt_forecast']['forecastday'][0]['fcttext_metric'];
+      $result_text = $obj['forecast']['txt_forecast']['forecastday'][0]['fcttext_metric'];
     }else{
-        $result_text = 'ไม่พบข้อมูล';
+      $result_text = 'ไม่พบข้อมูล';
     }
-  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($result_text);
+    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($result_text);
+    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+  }
+
+  if ((strstr($text, 'วิดีโอ') !== false)) {
+    $urlvideo = "https://linebot.faxthai.com/linebot-school/public/farewellballad.mp4";
+    $urlpic = "https://linebot.faxthai.com/linebot-school/public/zakkwylde.jpg";
+
+    $videoMessageBuilder = new \LINE\LINEBot\MessageBuilder\VideoMessageBuilder($urlvideo, $urlpic);
+    $response = $bot->replyMessage($replyToken, $videoMessageBuilder);
+  }
+
+  if ((strstr($text, 'รูป') !== false)) {
+    $urlpic = "https://linebot.faxthai.com/linebot-school/public/zakkwylde.jpg";
+
+    $picMessageBuilder = new \LINE\LINEBot\MessageBuilder\ImageMessageBuilder($urlpic, $urlpic);
+    $response = $bot->replyMessage($replyToken, $picMessageBuilder);
+  }
+
+  if ((strstr($text, 'เพลง') !== false)) {
+    $urlaud = "https://linebot.faxthai.com/linebot-school/public/farewellballad.m4a";
+
+    $audioMessageBuilder = new \LINE\LINEBot\MessageBuilder\AudioMessageBuilder($urlaud, 97000);
+    $response = $bot->replyMessage($replyToken, $audioMessageBuilder);
+  }
+} else {
+  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ผมไม่เข้าใจที่คุณพูด');
   $response = $bot->replyMessage($replyToken, $textMessageBuilder);
-}
-
-if ((strstr($text, 'วิดีโอ') !== false)) {
-  $urlvideo = "https://linebot.faxthai.com/linebot-school/public/farewellballad.mp4";
-  $urlpic = "https://linebot.faxthai.com/linebot-school/public/zakkwylde.jpg";
-
-  $videoMessageBuilder = new \LINE\LINEBot\MessageBuilder\VideoMessageBuilder($urlvideo, $urlpic);
-  $response = $bot->replyMessage($replyToken, $videoMessageBuilder);
-}
-
-if ((strstr($text, 'รูป') !== false)) {
-  $urlpic = "https://linebot.faxthai.com/linebot-school/public/zakkwylde.jpg";
-
-  $picMessageBuilder = new \LINE\LINEBot\MessageBuilder\ImageMessageBuilder($urlpic, $urlpic);
-  $response = $bot->replyMessage($replyToken, $picMessageBuilder);
-}
-
-if ((strstr($text, 'เพลง') !== false)) {
-  $urlaud = "https://linebot.faxthai.com/linebot-school/public/farewellballad.m4a";
-
-  $audioMessageBuilder = new \LINE\LINEBot\MessageBuilder\AudioMessageBuilder($urlaud, 97000);
-  $response = $bot->replyMessage($replyToken, $audioMessageBuilder);
 }
  ?>
