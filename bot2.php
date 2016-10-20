@@ -3,9 +3,9 @@
   // require "src/setting.php";
   // require "src/handle.php";
   // require "src/init.php";
-  foreach (glob("src/*.php") as $filename)
+  foreach (glob("src/*.php") as $src)
   {
-      require $filename;
+      require $src;
   }
   foreach (glob("corehandle/*.php") as $filename)
   {
