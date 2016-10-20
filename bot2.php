@@ -85,15 +85,15 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
 //                     ));
 // }
 //
-// if ((strstr($text, 'Confirm') !== false)) {
-//     $response = $bot->replyMessage($replyToken, new TemplateMessageBuilder(
-//                         'Confirm alt text',
-//                         new ConfirmTemplateBuilder('Do it?', [
-//                             new MessageTemplateActionBuilder('Yes', 'Yes!'),
-//                             new MessageTemplateActionBuilder('No', 'No!'),
-//                         ])
-//                     ));
-// }
+if ((strstr($text, 'Confirm') !== false)) {
+    $response = $bot->replyMessage($replyToken, new TemplateMessageBuilder(
+                        'Confirm alt text',
+                        new ConfirmTemplateBuilder('Do it?', [
+                            new MessageTemplateActionBuilder('Yes', 'Yes!'),
+                            new MessageTemplateActionBuilder('No', 'No!'),
+                        ])
+                    ));
+}
 //
 // if ((strstr($text, 'psru') !== false) || (strstr($text, 'Psru') !== false)) {
 //   $imageUrl = 'https://linebot.faxthai.com/linebot-school/public/psru.jpg';
