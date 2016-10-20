@@ -1,5 +1,6 @@
 <?php
 require "vendor/autoload.php";
+require "src/setting.php";
 //init Line dependencies
 use LINE\LINEBot;
 use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
@@ -18,13 +19,6 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
-
-//init MongoLog
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-
-$log = new Logger('linebot');
-$log->pushHandler(new StreamHandler('log/msg.log', Logger::WARNING));
 
 //handle function
 function objectToArray($d)
@@ -60,8 +54,8 @@ function getuser_profile($a){
 }
 
 //init line bot
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('RuHhciFle36XBJXielhR22aO689nyDsFjrzG0mBBDMvlqTsIWxBJgAdBh5LiyedayUBGmHtd0q4bxYJDbmozMr609DXroXmOyKABrJuGzd9iLpbWcKazlbwlMOORJeAxdVcOYSu8yoaAGANJpSUdqQdB04t89/1O/w1cDnyilFU=');
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '63029feed681ec683d321a94e98bfb8d']);
+// $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('RuHhciFle36XBJXielhR22aO689nyDsFjrzG0mBBDMvlqTsIWxBJgAdBh5LiyedayUBGmHtd0q4bxYJDbmozMr609DXroXmOyKABrJuGzd9iLpbWcKazlbwlMOORJeAxdVcOYSu8yoaAGANJpSUdqQdB04t89/1O/w1cDnyilFU=');
+// $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '63029feed681ec683d321a94e98bfb8d']);
 
 //get input
 $json_string = file_get_contents('php://input');
@@ -85,7 +79,7 @@ $userId=$user_profle['userId'];
 $pictureUrl=$user_profle['pictureUrl'];
 $statusMessage=$user_profle['statusMessage'];
 
-//bot handle
+//bot handle area
 if ((strstr($text, 'สวัสดี') !== false)) {
   $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('สวัสดีค่ะ '.$displayName);
   $response = $bot->replyMessage($replyToken, $textMessageBuilder);
